@@ -1,0 +1,38 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{mission.name}}">
+    <ion-content class="padding">
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" ng-model="newMission.name" placeholder="Mission Name">
+            </label>
+            <label class="item item-input">
+                <input type="text" ng-model="newMission.descr" placeholder="Mission Description">
+            </label>
+            <label class="item item-input">
+                <textarea ng-model="newMission.details" placeholder="Mission Details"></textarea>
+            </label>
+            <button ng-click="getPhoto(1)" class="button button-full button-calm button icon-right ion-chevron-right">
+                CAPTURE PHOTO
+            </button>
+            <button ng-click="getPhoto(0)" class="button button-full button-calm button icon-right ion-chevron-right">
+                BROWSE PHOTO
+            </button>
+            <img ng-src="{{newMission.logo}}">
+        </div>
+        <button ng-click="performAdd(newMission)" class="button button-full button-calm button icon-right ion-chevron-right">
+            ADD
+        </button>
+        <button ng-click="cancelAdd()" class="button button-full button-calm button icon-right ion-chevron-right">
+            CANCEL
+        </button>
+        <div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

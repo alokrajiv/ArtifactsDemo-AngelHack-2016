@@ -1,0 +1,49 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{mission.name}}">
+    <ion-content class="padding">
+        <div ng-show="missionDescriptionDisplay">
+            <img ng-src="{{mission.logo}}" style="width: 30%; height: 30%">
+            <p>
+                {{mission.descr}}
+            </p>
+            <p>
+                {{mission.details}}
+            </p>
+        </div>
+        <button ng-click="toggleDescr()" class="button button-full button-calm button ">
+            SHOW/HIDE DESCR
+        </button>
+        <div ng-controller="Messages">
+            <ion-scroll class="content-stable" on-swipe-left="hideTime = false" on-swipe-right="hideTime = true" style="background-color: #DDDDDD;">
+
+                <div ng-repeat="message in messages" ng-class="{other: message.userId != myId}" class="messages">
+
+                    <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
+                        <span class="chat">{{ message.text }}</span>
+                    </div>
+
+                    <div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">{{message.time}}</div>
+
+
+                </div>
+
+            </ion-scroll>
+
+            <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()"
+                    on-blur="inputDown()" />
+                </label>
+                <button class="button button-clear" ng-click="sendMessage()">
+                    Send
+                </button>
+            </ion-footer-bar>
+        </div>
+    </ion-content>
+
+</ion-view>

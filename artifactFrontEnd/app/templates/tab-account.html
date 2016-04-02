@@ -1,0 +1,15 @@
+<ion-view view-title="Account">
+  <ion-content>
+    <ion-list>
+    <ion-toggle  ng-model="settings.enableFriends">
+        Auto-Sync
+    </ion-toggle>
+    
+    <div class="list">
+    <label class="item item-input">
+       Name:&nbsp;<input type="text" ng-change="profileNameChanged()" ng-model="settings.profileName">(touch name to edit)
+    </label>
+    </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
